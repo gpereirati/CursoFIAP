@@ -1,0 +1,68 @@
+﻿<!-- ViewsTipoProdutoIndex.cshtml -->
+@model IEnumerable<FIAPSmartCity.Models.TipoProdutoEF>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Tipo de Produto</title>
+</head>
+<body>
+    <h1>Tipo de Produto</h1>
+    <p>
+        <!-- uso de TagHelpers para definir o Controller e a Action -->
+        <a asp-controller="TipoProdutoEF" asp-action="Cadastrar">Novo Tipo</a>
+    </p>
+
+    <!-- Verifica se a chave "Mensagem" existe no TempData -->
+    @if (@TempData["Mensagem"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            <!-- Imprime para o usuário a mensagem -->
+        @TempData["Mensagem"]
+        </div>
+    }
+
+
+    <table class="table" border="1">
+        <tr>
+            <th>Id</th>
+            <th>Descrição</th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <label>@item.IdTipo</label>
+                </td>
+                <td>
+                    <label>@item.DescricaoTipo</label>
+                </td>
+                <td>
+
+                    <!-- asp-route-id é usado para informar o Id do Item selecionado. -->
+                    <a asp-controller="TipoProdutoEF"
+                   asp-action="Editar"
+                   asp-route-id="@item.IdTipo">Editar</a>
+
+                    <a asp-controller="TipoProdutoEF"
+                   asp-action="Consultar"
+                   asp-route-id="@item.IdTipo">Consultar</a>
+
+                    <a asp-controller="TipoProdutoEF"
+                   asp-action="ConsultarProduto"
+                   asp-route-id="@item.IdTipo">ConsultarProduto</a>
+
+                    <a asp-controller="TipoProdutoEF"
+                   asp-action="Excluir"
+                   asp-route-id="@item.IdTipo">Excluir</a>
+                </td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

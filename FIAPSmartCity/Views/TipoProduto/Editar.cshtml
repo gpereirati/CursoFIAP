@@ -1,0 +1,56 @@
+﻿@model FIAPSmartCity.Models.TipoProduto
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Tipo de Produto - Editar</title>
+</head>
+<body>
+    <h1>Tipo de Produto - Editar</h1>
+
+    <!-- formulário HTML com Tag Helpers-->
+    <form asp-action="Editar" asp-controller="TipoProduto" method="post">
+        <!-- Campo oculto para guardar qual Id (chave) do registro alterado -->
+        <input type="hidden" asp-for="IdTipo" />
+        <div class="form-horizontal">
+            <hr />
+
+            <div class="form-group">
+                <label>Descrição</label>
+                <div class="col-md-10">
+                    <!-- Caixa de Texto -->
+                    <input asp-for="DescricaoTipo" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Comercializado</label>
+                <div class="checkbox">
+                    <!-- CheckBox -->
+                    <input asp-for="Comercializado" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="reset" value="Limpar" class="btn btn-default" />
+                    <!-- HTML Simple para envio dos dados do formulário -->
+                    <input type="submit" value="Gravar Alteração" class="btn btn-default" />
+                </div>
+            </div>
+            <hr />
+        </div>
+    </form>
+
+    <div>
+        <a asp-controller="TipoProduto" asp-action="Index">Voltar</a>
+    </div>
+
+</body>
+</html>

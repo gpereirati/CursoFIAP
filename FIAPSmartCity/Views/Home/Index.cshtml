@@ -1,0 +1,23 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Homepage</title>
+</head>
+<body>
+    <div>
+        <h1>Nossa home-page.</h1>
+    </div>
+
+    @{
+        for (int i = 0; i < 10; i++)
+        {
+            <p>@i</p>
+        }
+    }
+</body>
+</html>

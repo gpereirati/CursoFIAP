@@ -1,0 +1,38 @@
+﻿@model FIAPSmartCity.Models.TipoProdutoEF
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Tipo de Produto - Consultar</title>
+</head>
+<body>
+    <h1>Tipo de Produto - Consultar</h1>
+    <div class="form-horizontal">
+        <hr />
+
+        <div class="form-group">
+            <label><b>Descrição:</b></label>
+            <div class="col-md-10">
+                <span>@Model.DescricaoTipo</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label><b>Comercializado:</b></label>
+            <div class="checkbox">
+                <span>@Model.Comercializado</span>
+            </div>
+        </div>
+        <hr />
+    </div>
+    <div>
+        <a asp-controller="TipoProdutoEF" asp-action="Index">Voltar</a>
+    </div>
+
+</body>
+</html>
